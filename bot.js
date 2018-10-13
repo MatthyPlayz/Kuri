@@ -10,10 +10,9 @@ logger.add(new logger.transports.Console, { colorize: true });
 logger.level = 'debug';
 // Initialize Discord Bot
 var bot = new Discord.Client({
-   token: auth.token,
+   token: process.env.AUTH,
    autorun: true
 });
-http.createServer().listen(process.env.PORT || 6000)
 bot.on('ready', function (user, userID, channelID, message, evt) {
     logger.info('Connected');
     logger.info('Logged in as: ');
